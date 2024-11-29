@@ -1,3 +1,9 @@
+// import { Metadata } from "next";
+// import { SliceZone } from "@prismicio/react";
+
+// import { createClient } from "@/prismicio";
+// import { components } from "@/slices";
+
 import Image from "next/image";
 
 export default function Home() {
