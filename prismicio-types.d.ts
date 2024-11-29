@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice = TestSliceSlice;
 
 /**
  * Content for Page documents
@@ -78,6 +78,51 @@ export type PageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = PageDocument;
 
+/**
+ * Primary content in *TestSlice → Default → Primary*
+ */
+export interface TestSliceSliceDefaultPrimary {
+  /**
+   * Text field field in *TestSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_slice.default.primary.text_field
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_field: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TestSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestSlice*
+ */
+type TestSliceSliceVariation = TestSliceSliceDefault;
+
+/**
+ * TestSlice Shared Slice
+ *
+ * - **API ID**: `test_slice`
+ * - **Description**: TestSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSlice = prismic.SharedSlice<
+  "test_slice",
+  TestSliceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -103,6 +148,10 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      TestSliceSlice,
+      TestSliceSliceDefaultPrimary,
+      TestSliceSliceVariation,
+      TestSliceSliceDefault,
     };
   }
 }
