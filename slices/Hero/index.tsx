@@ -2,11 +2,10 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
-import Image from "next/image";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="xl" className="md:mb-8 mb-4 mt-12 first:mt-0 last:mb-0">{children}</Heading>
+    <Heading as="h1" size="xl" className="text-center">{children}</Heading>
   ),
   paragraph: ({children}) => (
     <p className="text-2xl font-normal leading-10 font-body text-slate-600 mb-4 md:mb-8 max-w-md">{children}</p>
@@ -24,14 +23,9 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      <Image
-        src="./limelightsLogo.svg"
-        alt="Limelight Event Services Logo"
-        width={250}
-        height={50}
-        quality={100}
-        />
-      <PrismicRichText field={slice.primary.heading} components={components} />
+      <div className="absoluteCentre">
+        <PrismicRichText field={slice.primary.heading} components={components} />
+      </div>
     </Bounded>
   );
 };
