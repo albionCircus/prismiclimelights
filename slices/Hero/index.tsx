@@ -2,7 +2,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
-import Logo from "@/app/components/Logo";
+import Image from "next/image";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
@@ -24,7 +24,13 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      <Logo/>
+      <Image
+        src="./limelightsLogo.svg"
+        alt="Limelight Event Services Logo"
+        width={250}
+        height={50}
+        quality={100}
+        />
       <PrismicRichText field={slice.primary.heading} components={components} />
     </Bounded>
   );
