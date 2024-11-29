@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from 'next/head'
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -25,11 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <Head>
+        <title>My page title!!!!!</title>
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <p>Hello</p>
       </body>
     </html>
   );

@@ -15,7 +15,7 @@ const TestSlice = ({ slice }: TestSliceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for test_slice (variation: {slice.variation}) Slices
+      {slice.primary.text_field}
     </section>
   );
 };

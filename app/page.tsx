@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
@@ -18,5 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: page.data.meta_title,
     description: page.data.meta_description,
+    openGraph: {
+      title: page.data.meta_title ?? undefined,
+      description: page.data.meta_description ?? undefined,
+      images: [{ url: page.data.meta_image.url ?? "" }],
+    },
   };
 }
