@@ -27,7 +27,7 @@
             "label": "Body",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong,em"
+            "multi": "paragraph,strong,em"
           }
         },
         "image": {
