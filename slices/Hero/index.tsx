@@ -7,7 +7,7 @@ import styles from "@/app/custom.module.css";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="xl" className={`text-center text-white leading-none ${styles.heroShadow}`}>{children}</Heading>
+    <Heading as="h1" size="xl" className={`text-center text-white ${styles.heroShadow}`}>{children}</Heading>
   ),
   paragraph: ({children}) => (
     <p className="text-2xl font-normal leading-10 font-body text-slate-600 mb-4 md:mb-8 max-w-md">{children}</p>

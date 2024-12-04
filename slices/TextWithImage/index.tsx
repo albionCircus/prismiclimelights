@@ -31,7 +31,7 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
         <div className="grid gap-4">
           <PrismicRichText field={slice.primary.heading} components={components} />
           <PrismicRichText field={slice.primary.body} components={components} />
-          <Button field={slice.primary.button_link}>
+          <Button field={slice.primary.button_link} className="mt-2">
             {slice.primary.button_text}
           </Button>
         </div>
