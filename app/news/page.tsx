@@ -5,16 +5,18 @@ import { components } from "@/slices";
 import { PrismicDocument } from "@prismicio/client";
 import Bounded from "../components/Bounded";
 import Pagination from "../components/Pagination";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 interface PageProps {
-  searchParams?: {
+  searchParams?: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 const POSTS_PER_PAGE = 6;
 
-export default async function Page({ searchParams = {} }: PageProps) {
+export default async function Page(props: PageProps) {
+  const searchParams = await props.searchParams || {}; // Fallback to an empty object if undefined from line 11
   const client = createClient();
   const page = await client.getSingle("news");
 
@@ -46,12 +48,22 @@ export default async function Page({ searchParams = {} }: PageProps) {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
-      <Bounded>
-        {posts.map((post: PrismicDocument, index: number) => (
-          <div key={index} className="">
-            <PrismicRichText field={post.data.heading} />
-          </div>
-        ))}
+      <Bounded className="margin0auto max-w-7xl">
+        <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
+          {posts.map((post: PrismicDocument, index: number) => (
+            <PrismicNextLink document={post} key={index}>
+              <article className="bg-sky-100 min-h-full">
+                <PrismicNextImage field={post.data.image} className="" />
+                <div className="m-5">
+                  <p className="w-fit bg-white p-1.5 rounded-lg mb-3">{post.data.category}</p>
+                  <PrismicRichText field={post.data.heading}/>
+                  <p className="my-3">{new Date(post.data.publish_date || Date.now()).toLocaleDateString("en-GB")}</p>
+                  <PrismicRichText field={post.data.description} />
+                </div>
+              </article>
+            </PrismicNextLink>
+          ))}
+        </div>
         <Pagination currentPage={currentPage} totalPages={totalPages} />
       </Bounded>
     </>

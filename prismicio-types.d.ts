@@ -74,13 +74,13 @@ interface NewsPostDocumentData {
   /**
    * Heading field in *News Post*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: news_post.heading
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.TitleField;
+  heading: prismic.KeyTextField;
 
   /**
    * Publish Date field in *News Post*
