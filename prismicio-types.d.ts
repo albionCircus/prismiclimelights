@@ -83,17 +83,6 @@ interface NewsPostDocumentData {
   heading: prismic.KeyTextField;
 
   /**
-   * Publish Date field in *News Post*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.publish_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  publish_date: prismic.DateField;
-
-  /**
    * Original Date field in *News Post*
    *
    * - **Field Type**: Date

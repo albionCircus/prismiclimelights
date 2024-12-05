@@ -19,13 +19,6 @@
           "placeholder": ""
         }
       },
-      "publish_date": {
-        "type": "Date",
-        "config": {
-          "label": "Publish Date",
-          "placeholder": ""
-        }
-      },
       "original_date": {
         "type": "Date",
         "config": {
