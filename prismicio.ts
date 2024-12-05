@@ -24,6 +24,11 @@ const routes: prismic.ClientConfig["routes"] = [
   // 	type: "page",
   // 	path: "/:uid",
   // },
+  // ./src/prismicio.ts
+  {
+    type: "news_post",
+    path: "/news/:uid",
+  },
 ];
 
 /**
