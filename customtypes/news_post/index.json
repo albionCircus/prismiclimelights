@@ -61,6 +61,14 @@
           "placeholder": ""
         }
       },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "",
+          "options": ["Events", "Industry", "Technology"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

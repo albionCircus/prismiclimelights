@@ -138,6 +138,17 @@ interface NewsPostDocumentData {
   author: prismic.KeyTextField;
 
   /**
+   * Category field in *News Post*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_post.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<"Events" | "Industry" | "Technology">;
+
+  /**
    * Slice Zone field in *News Post*
    *
    * - **Field Type**: Slice Zone
