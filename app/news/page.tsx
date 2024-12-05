@@ -56,7 +56,7 @@ export default async function Page(props: PageProps) {
                 <PrismicNextImage field={post.data.image} className="" />
                 <div className="m-5">
                   <p className="w-fit bg-white p-1.5 rounded-lg mb-3">{post.data.category}</p>
-                  <PrismicRichText field={post.data.heading}/>
+                  <h4 className="text-sky-950">{post.data.heading}</h4>
                   <p className="my-3">{new Date(post.data.publish_date || Date.now()).toLocaleDateString("en-GB")}</p>
                   <PrismicRichText field={post.data.description} />
                 </div>

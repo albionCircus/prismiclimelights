@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     <div>
      
       <h1>
-        <PrismicRichText field={data.heading} />
+        {data.heading}
       </h1>
       
 

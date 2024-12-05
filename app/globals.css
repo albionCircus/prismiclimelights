@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+
+h1 {
+    font-family: var(--font-ibmplexsans);
+}
+  
+h2 {
+    font-family: var(--font-ibmplexsans);
+    @apply text-balance text-4xl xl:text-[3rem] xl:leading-[3.5rem];
+}
+
+h3 {
+    @apply text-balance text-3xl xl:text-[2.2rem] xl:leading-[2.2rem];
+    font-family: var(--font-ibmplexsans);
+}
+
+h4 {
+    @apply text-balance text-xl xl:text-[1.4rem] xl:leading-[1.8rem];
+    font-family: var(--font-ibmplexsans);
+}
+p {
+    @apply max-w-3xl text-lg text-slate-600 leading-snug;
+    font-family: var(--font-dm-sans);
+}
+
+a {
+    font-family: var(--font-dm-sans);
+}
+
 .absoluteCentre {
     position: absolute;
     top: 50%;

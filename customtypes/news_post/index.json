@@ -26,6 +26,13 @@
           "placeholder": ""
         }
       },
+      "original_date": {
+        "type": "Date",
+        "config": {
+          "label": "Original Date",
+          "placeholder": ""
+        }
+      },
       "description": {
         "type": "StructuredText",
         "config": {
