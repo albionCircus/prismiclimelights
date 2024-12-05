@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
@@ -12,7 +12,24 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const client = createClient();
   const page = await client.getByUID("news_post", uid).catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  if (!page) return notFound();
+
+  const { data } = page;
+
+  return (
+    <div>
+     
+      <h1>
+        <PrismicRichText field={data.heading} />
+      </h1>
+      
+
+      <p>{new Date(data.publish_date || Date.now()).toLocaleDateString("en-GB")}</p>
+
+      
+      <SliceZone slices={data.slices} components={components} />
+    </div>
+  );
 }
 
 export async function generateMetadata({
@@ -23,6 +40,8 @@ export async function generateMetadata({
   const { uid } = await params;
   const client = createClient();
   const page = await client.getByUID("news_post", uid).catch(() => notFound());
+
+  if (!page) return { title: "", description: "" };
 
   return {
     title: page.data.meta_title,
