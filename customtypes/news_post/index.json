@@ -57,19 +57,20 @@
           "multi": "paragraph,strong,em"
         }
       },
-      "author": {
-        "type": "Text",
-        "config": {
-          "label": "Author",
-          "placeholder": ""
-        }
-      },
       "category": {
         "type": "Select",
         "config": {
           "label": "Category",
           "placeholder": "",
           "options": ["Events", "Industry", "Technology"]
+        }
+      },
+      "author": {
+        "type": "Select",
+        "config": {
+          "label": "Author",
+          "placeholder": "",
+          "options": ["Craig Duncan", "Ryan MacIsaac"]
         }
       },
       "slices": {

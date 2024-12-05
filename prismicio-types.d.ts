@@ -127,17 +127,6 @@ interface NewsPostDocumentData {
   article: prismic.RichTextField;
 
   /**
-   * Author field in *News Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.author
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  author: prismic.KeyTextField;
-
-  /**
    * Category field in *News Post*
    *
    * - **Field Type**: Select
@@ -147,6 +136,17 @@ interface NewsPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   category: prismic.SelectField<"Events" | "Industry" | "Technology">;
+
+  /**
+   * Author field in *News Post*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_post.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  author: prismic.SelectField<"Craig Duncan" | "Ryan MacIsaac">;
 
   /**
    * Slice Zone field in *News Post*
