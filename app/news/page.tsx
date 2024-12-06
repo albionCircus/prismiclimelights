@@ -23,23 +23,30 @@ export default async function Page(props: PageProps) {
   // Safely parse the page number from searchParams
   const currentPage = parseInt(searchParams.page || "1", 10);
 
-  // Fetch posts for the current page
+  // Fetch the posts for the current page
   const { results: posts, total_results_size } = await client.getByType(
     "news_post",
     {
       orderings: [
         { field: "data.original_date", direction: "desc" },
-        { field: "document.last_publication_date", direction: "desc" },
+        // { field: "document.last_publication_date", direction: "desc" },
+        { field: "document.first_publication_date", direction: "desc" },
       ],
       pageSize: POSTS_PER_PAGE,
       page: currentPage,
-    }
+    },
   );
 
-  // Sort posts by publish date
+  // If original_date is present, override the sorting manually
   posts.sort((a, b) => {
-    const dateA = a.data.publish_date || "";
-    const dateB = b.data.publish_date || "";
+    const dateA =
+      a.data.original_date ||
+      // a.last_publication_date ||
+      a.first_publication_date;
+    const dateB =
+      b.data.original_date ||
+      // b.last_publication_date ||
+      b.first_publication_date;
     return new Date(dateB).getTime() - new Date(dateA).getTime();
   });
 
@@ -57,7 +64,7 @@ export default async function Page(props: PageProps) {
                 <div className="m-5">
                   <p className="w-fit bg-white p-1.5 rounded-lg mb-3">{post.data.category}</p>
                   <h4 className="text-sky-950">{post.data.heading}</h4>
-                  <p className="my-3">{new Date(post.data.publish_date || Date.now()).toLocaleDateString("en-GB")}</p>
+                  <p className="my-3">{new Date(post.data.original_date || Date.now()).toLocaleDateString("en-GB")}</p>
                   <PrismicRichText field={post.data.description} />
                 </div>
               </article>

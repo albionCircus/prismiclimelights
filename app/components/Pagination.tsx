@@ -16,10 +16,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
   }
 
   return (
-    <nav
-      className="mt-10 flex justify-center space-x-4 border-b border-t border-white/10 p-10"
-      aria-label="Pagination Navigation"
-    >
+    <nav className="flex justify-center space-x-4 pt-7 sm:pt-10 pb-3" aria-label="Pagination Navigation">
       {currentPage > 1 && (
         <Link
           aria-label="Go to previous page"

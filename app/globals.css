@@ -5,6 +5,7 @@
 
 h1 {
     font-family: var(--font-ibmplexsans);
+    @apply text-slate-600 text-balance text-4xl xl:text-[3.7rem] xl:leading-[3.5rem];
 }
   
 h2 {
@@ -27,7 +28,12 @@ p {
 }
 
 a {
+    @apply max-w-3xl text-lg leading-snug;
     font-family: var(--font-dm-sans);
+}
+
+article p {
+    margin-bottom: 10px;
 }
 
 .absoluteCentre {
