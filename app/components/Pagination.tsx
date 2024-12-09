@@ -20,7 +20,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
       {currentPage > 1 && (
         <Link
           aria-label="Go to previous page"
-          className="cursor-pointer text-primary underline"
+          className="cursor-pointer text-primary underline text-slate-600 underline-offset-4"
           href={`?page=${currentPage - 1}`}
           passHref
         >
@@ -33,7 +33,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
           href={`?page=${i + 1}`}
           aria-label={`Go to page ${i + 1}`}
           className={`${
-            i + 1 === currentPage ? "text-red" : "text-primary underline"
+            i + 1 === currentPage ? "text-red" : "text-primary underline text-slate-600 underline-offset-4"
           } cursor-pointer`}
           passHref
         >
@@ -43,7 +43,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
       {currentPage < totalPages && (
         <Link
           aria-label="Go to next page"
-          className="cursor-pointer text-primary underline"
+          className="cursor-pointer text-primary underline text-slate-600 underline-offset-4"
           href={`?page=${currentPage + 1}`}
           passHref
         >

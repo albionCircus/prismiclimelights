@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Footer from "./components/Footer";
 // import localFont from "next/font/local";
 import "./globals.css";
+import Navigation from "./components/Navigation";
 
 const ibm_plex_sans = IBM_Plex_Sans({
   weight: ["700"],
@@ -82,6 +83,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <body className={`${dm_serif_display.variable} ${ibm_plex_sans.variable} ${dm_sans.variable} ${dm_mono.variable} ${inter.variable} ${ibm_plex_sans_400.variable} antialiased`}>
+        <Navigation />
         <main>
           {children}
         </main>
