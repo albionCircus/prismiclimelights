@@ -32,6 +32,14 @@ a {
     font-family: var(--font-dm-sans);
 }
 
+small {
+    font-size: 0.9em;
+}
+
+small a {
+    font-size: 1em;
+}
+
 article p {
     margin-bottom: 10px;
 }

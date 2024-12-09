@@ -28,7 +28,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className="absoluteCentre">
         <PrismicRichText field={slice.primary.heading} components={components} />
       </div>
-      <PrismicNextImage field={slice.primary.hero_image} className="hero500" />
+      <PrismicNextImage field={slice.primary.hero_image} className="hero500" priority />
     </Bounded>
   );
 };

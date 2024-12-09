@@ -1,7 +1,6 @@
 import { createClient } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Logo from "../components/Logo";
-import Bounded from "../components/Bounded";
 import Link from "next/link";
 
 const repositoryName = "prismiclimelights"; // Repository name
@@ -13,12 +12,11 @@ async function Navigation() {
   const navigation = await client.getSingle("navigation");
 
   return (
-    <Bounded>
-        <nav className="flex flex-col md:flex-row justify-between items-center margin0auto max-w-6xl">
+        <nav className="relative px-4 pt-4 md:pt-8 md:px-6 lg:pt-8 flex flex-col md:flex-row justify-between items-center margin0auto lg:max-w-[1440px]">
             <Link href={'/'}> 
                 <Logo />
             </Link>
-            <ul className="flex space-x-4 text-slate-600">
+            <ul className="flex space-x-6 text-slate-600 mt-5 md:mt-0">
                 {navigation.data.slices.map((slice) => (
                 <li key={slice.id}>
                     <PrismicNextLink field={slice.primary.link} />
@@ -36,7 +34,6 @@ async function Navigation() {
                 ))}
             </ul>
         </nav>
-    </Bounded>
   );
 }
 
