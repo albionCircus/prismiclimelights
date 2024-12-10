@@ -24,7 +24,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="">
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
       <div className="absoluteCentre">
         <PrismicRichText field={slice.primary.heading} components={components} />
       </div>

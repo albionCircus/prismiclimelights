@@ -16,7 +16,7 @@ async function Navigation() {
             <Link href={'/'}> 
                 <Logo />
             </Link>
-            <ul className="flex space-x-6 text-slate-600 mt-5 md:mt-0">
+            <ul className="flex space-x-10 text-slate-600 mt-5 md:mt-0">
                 {navigation.data.slices.map((slice) => (
                 <li key={slice.id}>
                     <PrismicNextLink field={slice.primary.link} />
