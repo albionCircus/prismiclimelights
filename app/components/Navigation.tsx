@@ -2,6 +2,7 @@ import { createClient } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Logo from "../components/Logo";
 import Link from "next/link";
+import styles from "@/app/custom.module.css";
 
 const repositoryName = "prismiclimelights"; // Repository name
 const endpoint = `https://${repositoryName}.cdn.prismic.io/api/v2`;
@@ -18,7 +19,7 @@ async function Navigation() {
             </Link>
             <ul className="flex space-x-10 text-slate-600 mt-5 md:mt-0">
                 {navigation.data.slices.map((slice) => (
-                <li key={slice.id}>
+                <li key={slice.id} className={`${styles.topLevelLink}`}>
                     <PrismicNextLink field={slice.primary.link} />
                     {slice.items.length > 0 && (
                     <ul>
