@@ -14,7 +14,7 @@ export type ServiceProps = SliceComponentProps<Content.ServiceSlice>;
  */
 const Service = ({ slice }: ServiceProps): JSX.Element => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="margin0auto lg:max-w-[1440px]">
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="margin0auto lg:max-w-[1440px] scroll-reveal animate fadeInBottom">
         {slice.primary.service.map((item, serviceKey) => (
           <div key={serviceKey} className={`flex ${styles.serviceItem} justify-between items-center mb-10 bg-gradient-to-tr from-gray-50 to-gray-200`}>
             <article className="p-5 md:p-10">

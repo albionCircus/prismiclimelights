@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | TextWithImageSlice;
+type HomepageDocumentDataSlicesSlice =
+  | FormSectionSlice
+  | HeroSlice
+  | TextWithImageSlice;
 
 /**
  * Content for Homepage documents
@@ -329,6 +332,7 @@ export type NewsPostDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FormSectionSlice
   | ServiceSlice
   | TextWithImageSlice
   | HeroSlice;
@@ -464,6 +468,81 @@ export type AllDocumentTypes =
   | NewsPostDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *FormSection → Default → Primary*
+ */
+export interface FormSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *FormSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form_section.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *FormSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Location field in *FormSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form_section.default.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location: prismic.KeyTextField;
+
+  /**
+   * Phone field in *FormSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form_section.default.primary.phone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FormSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FormSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FormSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FormSection*
+ */
+type FormSectionSliceVariation = FormSectionSliceDefault;
+
+/**
+ * FormSection Shared Slice
+ *
+ * - **API ID**: `form_section`
+ * - **Description**: FormSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FormSectionSlice = prismic.SharedSlice<
+  "form_section",
+  FormSectionSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -846,6 +925,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      FormSectionSlice,
+      FormSectionSliceDefaultPrimary,
+      FormSectionSliceVariation,
+      FormSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

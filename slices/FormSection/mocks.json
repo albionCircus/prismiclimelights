@@ -1,0 +1,35 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "story",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit esse officia adipisicing incididunt eu. Proident laboris nostrud laborum eu deserunt aliqua eiusmod non dolore in. Amet amet reprehenderit occaecat."
+						}
+					}
+				]
+			},
+			"location": {
+				"__TYPE__": "FieldContent",
+				"value": "grandmother",
+				"type": "Text"
+			},
+			"phone": {
+				"__TYPE__": "FieldContent",
+				"value": "leader",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
