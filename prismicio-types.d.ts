@@ -573,38 +573,53 @@ export type NavigationItemSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Service → Default → Primary*
+ * Item in *Service → Default → Primary → Service*
  */
-export interface ServiceSliceDefaultPrimary {
+export interface ServiceSliceDefaultPrimaryServiceItem {
   /**
-   * Heading field in *Service → Default → Primary*
+   * Heading field in *Service → Default → Primary → Service*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: service.default.primary.heading
+   * - **API ID Path**: service.default.primary.service[].heading
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   heading: prismic.KeyTextField;
 
   /**
-   * Description field in *Service → Default → Primary*
+   * Description field in *Service → Default → Primary → Service*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: service.default.primary.description
+   * - **API ID Path**: service.default.primary.service[].description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
 
   /**
-   * Image field in *Service → Default → Primary*
+   * Image field in *Service → Default → Primary → Service*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: service.default.primary.image
+   * - **API ID Path**: service.default.primary.service[].image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Service → Default → Primary*
+ */
+export interface ServiceSliceDefaultPrimary {
+  /**
+   * Service field in *Service → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.default.primary.service[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service: prismic.GroupField<Simplify<ServiceSliceDefaultPrimaryServiceItem>>;
 }
 
 /**
@@ -840,6 +855,7 @@ declare module "@prismicio/client" {
       NavigationItemSliceVariation,
       NavigationItemSliceDefault,
       ServiceSlice,
+      ServiceSliceDefaultPrimaryServiceItem,
       ServiceSliceDefaultPrimary,
       ServiceSliceVariation,
       ServiceSliceDefault,
