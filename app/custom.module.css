@@ -36,3 +36,7 @@
         border-right: 20px white solid;
     }
 }
+
+.serviceItem:last-of-type {
+    margin-bottom: 0;
+}

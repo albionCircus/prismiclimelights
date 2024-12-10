@@ -11,7 +11,7 @@ const components: JSXMapSerializer = {
     <Heading as="h2" size="lg" className="">{children}</Heading>
   ),
   paragraph: ({children}) => (
-    <p className="max-w-3xl text-lg font-body text-slate-600">{children}</p>
+    <p className="text-slate-700">{children}</p>
   ),
 }
 

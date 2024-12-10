@@ -10,12 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var--font-dm-sans"],
-        mono: ["var(--font-dm-mono)"],
-        serifdisplay: ["var(--font-dm-serif-display)"],
-        inter: ["var(--font-inter)"],
-        ibmplexsans: ["var(--font-ibmplexsans)"],
-        ibmplexsans400: ["var(--font-ibmplexsans_400)"],
+        heading: ['var(--font-roboto-flex)'],
+        body: ['var(--font-montserrat)'],
       },
     },
   },

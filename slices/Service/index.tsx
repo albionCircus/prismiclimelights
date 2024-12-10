@@ -18,7 +18,7 @@ const Service = ({ slice }: ServiceProps): JSX.Element => {
         {slice.primary.service.map((item, serviceKey) => (
           <div key={serviceKey} className={`flex ${styles.serviceItem} justify-between items-center mb-10 bg-gradient-to-tr from-gray-50 to-gray-200`}>
             <article className="p-5 md:p-10">
-              <h2 className="text-sky-950 mb-3">{item.heading}</h2>
+              <h2 className="text-slate-700 mb-3">{item.heading}</h2>
               <PrismicRichText field={item.description} />
             </article>
             <div>
