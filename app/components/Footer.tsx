@@ -1,6 +1,6 @@
 import { createClient } from "@/prismicio";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default async function Footer() {
     const client = createClient();
@@ -14,14 +14,14 @@ export default async function Footer() {
                     <span>
                         <Link href={"https://albioncircus.com/"}>
                             Site by Albion Circus
-                            <Image
+                            {/* <Image
                                 src="./albioncircus.svg"
                                 alt="Albion Circus"
                                 width={16}
                                 height={16}
                                 quality={100}
                                 className="inline-block ml-1 mt-0 sm:-mt-1"
-                            />
+                            /> */}
                         </Link>
                     </span>
                 </small>
