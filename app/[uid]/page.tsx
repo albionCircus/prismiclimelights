@@ -11,9 +11,8 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { uid } = await params; // Destructure `uid` safely
+  const { uid } = params; // No `await` needed here
 
-  // const uid = await params.uid;
   const client = createClient();
 
   const page = await client.getByUID("page", uid).catch(() => null);
