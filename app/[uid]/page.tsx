@@ -3,22 +3,22 @@ import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 
-// Props type definition
-interface PageProps {
+// More explicit type definition matching Next.js expectations
+type PageProps = {
   params: {
     uid: string;
   };
-}
+};
 
-export default async function Page({ params }: PageProps) {
-  const { uid } = params; // No `await` needed here
+export default async function Page({ params }: Readonly<PageProps>) {
+  const { uid } = params;
 
   const client = createClient();
 
   const page = await client.getByUID("page", uid).catch(() => null);
 
   if (!page) {
-    notFound(); // Trigger a 404 page if no content is found
+    notFound();
   }
 
   return <SliceZone slices={page.data.slices} components={components} />;
@@ -30,6 +30,6 @@ export async function generateStaticParams() {
   const pages = await client.getAllByType("page");
 
   return pages.map((page) => ({
-    uid: page.uid, // Ensure `uid` is returned as expected
+    uid: page.uid,
   }));
 }
