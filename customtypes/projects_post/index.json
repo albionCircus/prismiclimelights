@@ -30,10 +30,19 @@
           "placeholder": ""
         }
       },
+      "excerpt": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Excerpt",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "multi": "paragraph,strong,em"
+        }
+      },
       "description": {
         "type": "StructuredText",
         "config": {
-          "label": "Description",
+          "label": "Full Description",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"

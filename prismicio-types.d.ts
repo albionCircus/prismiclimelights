@@ -501,7 +501,18 @@ interface ProjectsPostDocumentData {
   heading: prismic.KeyTextField;
 
   /**
-   * Description field in *Projects Post*
+   * Excerpt field in *Projects Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects_post.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField;
+
+  /**
+   * Full Description field in *Projects Post*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
