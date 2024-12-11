@@ -26,8 +26,8 @@ export default async function Page() {
               <article className="bg-sky-100 min-h-full">
                 <PrismicNextImage field={post.data.image} />
                 <div className="m-5">
-                  <h4 className="text-sky-950">{post.data.heading}</h4>
-                  <PrismicRichText field={post.data.description} />
+                  <h4 className="text-sky-950 mb-3">{post.data.heading}</h4>
+                  <PrismicRichText field={post.data.excerpt} />
                 </div>
               </article>
             </PrismicNextLink>

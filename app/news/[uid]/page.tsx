@@ -17,12 +17,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   if (!page) return notFound();
 
-  const { data } = page;
+  const { data } = page; // Added myself
 
   return (
     <Bounded className="w-full max-w-[850px] margin0auto">
-      <article className="">
-        <PrismicNextImage field={data.image} />
+      <article>
+        <PrismicNextImage field={data.image} priority />
         <h1 className="my-5">{data.heading}</h1>
         <p>{new Date(data.original_date || Date.now()).toLocaleDateString("en-GB")}</p>
         <PrismicRichText field={data.article} />

@@ -15,7 +15,7 @@ export default async function Footer() {
                         <Link href={"https://albioncircus.com/"}>
                             Site by Albion Circus
                             <Image
-                                src="./albionCircus.svg"
+                                src="./albioncircus.svg"
                                 alt="Albion Circus"
                                 width={16}
                                 height={16}
