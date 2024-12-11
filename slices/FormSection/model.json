@@ -36,10 +36,13 @@
           }
         },
         "phone": {
-          "type": "Text",
+          "type": "Link",
           "config": {
             "label": "Phone",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null,
+            "allowText": true
           }
         }
       },

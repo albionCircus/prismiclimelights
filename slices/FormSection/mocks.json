@@ -25,9 +25,13 @@
 				"type": "Text"
 			},
 			"phone": {
-				"__TYPE__": "FieldContent",
-				"value": "leader",
-				"type": "Text"
+				"__TYPE__": "LinkContent",
+				"key": "f1c5d385-1e7d-4f92-bcba-3ca207dff874",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "per"
+				}
 			}
 		},
 		"items": []

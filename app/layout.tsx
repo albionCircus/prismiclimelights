@@ -4,7 +4,6 @@ import Head from 'next/head'
 import Footer from "./components/Footer";
 import "./globals.css";
 import Navigation from "./components/Navigation";
-import ContactForm from "./components/ContactForm";
 // import ScrollReveal from "./intersectionObserver";
 
 const roboto_flex = Roboto_Flex({
@@ -39,7 +38,6 @@ export default function RootLayout({
         <main>
           {children}
         </main>
-        <ContactForm />
         <Footer />
         {/* <ScrollReveal /> */}
       </body>

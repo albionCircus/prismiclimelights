@@ -506,12 +506,12 @@ export interface FormSectionSliceDefaultPrimary {
   /**
    * Phone field in *FormSection → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: form_section.default.primary.phone
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  phone: prismic.KeyTextField;
+  phone: prismic.LinkField;
 }
 
 /**

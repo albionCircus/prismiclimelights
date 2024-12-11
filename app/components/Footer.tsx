@@ -5,7 +5,7 @@ import Image from "next/image";
 export default async function Footer() {
     const client = createClient();
     const settings = await client.getSingle("settings");
-    return <footer className="bg-gray-200 py-6 flex flex-row justify-center items-center mt-4 md:mt-6 lg:mt-8">
+    return <footer className="bg-gray-200 py-6 flex flex-row justify-center items-center">
             <p className="font-body text-slate-600 text-center">
                 <small>
                     {settings.data.site_title} &copy; {new Date().getFullYear()} 

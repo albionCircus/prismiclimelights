@@ -31,29 +31,27 @@ export function ContactForm() {
 
     return (
         <>
-            <div className='w-full max-w-xs'>
-                <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <input type="hidden" name="subject" value="New contact form submission from Limelights website" aria-hidden="true" />
-                    <input type="checkbox" name="botcheck" className="honeyPot" autoComplete="off" aria-hidden="true" />
-                    <div className="mb-6">
-                        <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-1">Name*</label>
-                        <input type="text" name="name" required placeholder="Your name" aria-label="Enter your name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                    </div>
-                    <div className="mb-6">
-                        <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-1">Telephone*</label>
-                        <input type="text" name="phone" required placeholder="Your phone number" inputMode="numeric" aria-label="Enter your name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                    </div>
-                    <div className="mb-6">
-                        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-1">Email*</label>
-                        <input type="email" name="email" required placeholder="email@example.com" aria-label="Enter your email address" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                    </div>
-                    <div className="mb-6">
-                        <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-1">Message*</label>
-                        <textarea name="message" placeholder="Enter Message" aria-label="Enter your message" required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-                    </div>
-                    <button type="submit" aria-label="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Form</button>
-                </form>
-            </div>
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <input type="hidden" name="subject" value="New contact form submission from Limelights website" aria-hidden="true" />
+                <input type="checkbox" name="botcheck" className="honeyPot" autoComplete="off" aria-hidden="true" />
+                <div className="mb-6">
+                    <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-1">Name*</label>
+                    <input type="text" name="name" required placeholder="Your name" aria-label="Enter your name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                </div>
+                <div className="mb-6">
+                    <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-1">Telephone*</label>
+                    <input type="text" name="phone" required placeholder="Your phone number" inputMode="numeric" aria-label="Enter your name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                </div>
+                <div className="mb-6">
+                    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-1">Email*</label>
+                    <input type="email" name="email" required placeholder="email@example.com" aria-label="Enter your email address" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                </div>
+                <div className="mb-6">
+                    <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-1">Message*</label>
+                    <textarea name="message" placeholder="Enter Message" aria-label="Enter your message" required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                </div>
+                <button type="submit" aria-label="submit" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Form</button>
+            </form>
         </>
     );
 }
