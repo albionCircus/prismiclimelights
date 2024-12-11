@@ -3,15 +3,16 @@ import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 
-// More explicit type definition matching Next.js expectations
-type PageProps = {
+// Explicitly define the type using Next.js conventions
+export type PageProps = {
   params: {
-    uid: string;
+    uid: Promise<string>;
   };
 };
 
-export default async function Page({ params }: Readonly<PageProps>) {
-  const { uid } = params;
+export default async function Page({ params }: PageProps) {
+  // Use optional chaining and await to handle potential Promise
+  const uid = await params.uid;
 
   const client = createClient();
 
