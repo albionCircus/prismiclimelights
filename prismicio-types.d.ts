@@ -416,13 +416,13 @@ interface ProjectsDocumentData {
   /**
    * Heading field in *Projects*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: projects.heading
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.KeyTextField;
+  heading: prismic.TitleField;
 
   /**
    * Hero Image field in *Projects*

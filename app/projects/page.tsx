@@ -18,7 +18,12 @@ export default async function Page() {
 
   return (
     <>
-        <SliceZone slices={page.data.slices} components={components} />;
+        <Bounded>
+          <div className="absoluteCentre">
+            <h1>{page.data.heading}</h1>
+          </div>
+          <PrismicNextImage field={page.data.hero_image} className="hero500" priority />
+        </Bounded>
         <Bounded className="margin0auto max-w-7xl">
         <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
           {posts.map((post: PrismicDocument, index: number) => (
@@ -34,6 +39,7 @@ export default async function Page() {
           ))}
         </div>
         </Bounded>
+        <SliceZone slices={page.data.slices} components={components} />;
     </>
   );
 }

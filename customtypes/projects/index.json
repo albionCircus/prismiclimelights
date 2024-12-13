@@ -7,10 +7,12 @@
   "json": {
     "Main": {
       "heading": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Heading",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading1"
         }
       },
       "hero_image": {
