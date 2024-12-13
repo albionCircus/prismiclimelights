@@ -26,12 +26,16 @@
 			},
 			"phone": {
 				"__TYPE__": "LinkContent",
-				"key": "f1c5d385-1e7d-4f92-bcba-3ca207dff874",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com",
 					"text": "per"
 				}
+			},
+			"phone2": {
+				"__TYPE__": "FieldContent",
+				"value": "0",
+				"type": "Number"
 			}
 		},
 		"items": []

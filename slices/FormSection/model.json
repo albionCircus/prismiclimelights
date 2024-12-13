@@ -44,6 +44,13 @@
             "select": null,
             "allowText": true
           }
+        },
+        "phone2": {
+          "type": "Number",
+          "config": {
+            "label": "Phone2",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

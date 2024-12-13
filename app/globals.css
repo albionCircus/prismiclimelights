@@ -41,7 +41,6 @@ nav li {
 a {
     font-family: var(--font-montserrat);
     font-weight: 450;
-    /* @apply max-w-3xl text-lg leading-snug; */
 }
 
 small {
