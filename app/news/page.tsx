@@ -59,7 +59,7 @@ export default async function Page(props: PageProps) {
         <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
           {posts.map((post: PrismicDocument, index: number) => (
             <PrismicNextLink document={post} key={index}>
-              <article className="bg-sky-100 min-h-full">
+              <article className="bg-sky-100 min-h-full border-b-2 border-orange-600">
                 <PrismicNextImage field={post.data.image} />
                 <div className="m-5">
                   <p className="w-fit bg-white p-1.5 rounded-lg mb-3">{post.data.category}</p>
