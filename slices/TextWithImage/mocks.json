@@ -50,10 +50,10 @@
 			},
 			"button_link": {
 				"__TYPE__": "LinkContent",
+				"key": "537b2b4f-e325-4ba6-a01f-72214e8d1333",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "softly"
+					"url": "http://google.com"
 				}
 			},
 			"button_text": {

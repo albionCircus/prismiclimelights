@@ -46,9 +46,9 @@
           "config": {
             "label": "Button Link",
             "placeholder": "",
-            "allowTargetBlank": true,
+            "allowTargetBlank": false,
             "select": null,
-            "allowText": true
+            "allowText": false
           }
         },
         "button_text": {
