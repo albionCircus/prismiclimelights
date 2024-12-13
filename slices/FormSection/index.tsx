@@ -2,6 +2,8 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import ContactForm from "@/app/components/ContactForm";
 import Image from "next/image";
+import Link from "next/link";
+const telLink = "tel:+";
 
 /**
  * Props for `FormSection`.
@@ -24,7 +26,9 @@ const FormSection = ({ slice }: FormSectionProps): JSX.Element => {
             </div>
             <div className="flex items-center">
               <Image src="./phone.svg" alt="Phone Icon" width={26} height={26} quality={100} className="inline-block mr-1.5"/>
-              <p className="m-0">{slice.primary.phone}</p>
+              <p className="m-0">
+                <Link href={telLink + slice.primary.phone} className="underline underline-offset-2">{slice.primary.phone}</Link>
+              </p>
             </div>
         </article>
         <div className="w-full">
