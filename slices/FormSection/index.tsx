@@ -24,8 +24,7 @@ const FormSection = ({ slice }: FormSectionProps): JSX.Element => {
             </div>
             <div className="flex items-center">
               <Image src="./phone.svg" alt="Phone Icon" width={26} height={26} quality={100} className="inline-block mr-1.5"/>
-              {/* <p className="m-0">{slice.primary.phone}</p> */}
-              
+              <p className="m-0">{slice.primary.phone}</p>
             </div>
         </article>
         <div className="w-full">
