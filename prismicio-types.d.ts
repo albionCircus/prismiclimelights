@@ -407,7 +407,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectsDocumentDataSlicesSlice = HeroSlice;
+type ProjectsDocumentDataSlicesSlice = FormSectionSlice | HeroSlice;
 
 /**
  * Content for Projects documents
