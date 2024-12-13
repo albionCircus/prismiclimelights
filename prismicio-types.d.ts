@@ -407,12 +407,34 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectsDocumentDataSlicesSlice = FormSectionSlice | HeroSlice;
+type ProjectsDocumentDataSlicesSlice = FormSectionSlice;
 
 /**
  * Content for Projects documents
  */
 interface ProjectsDocumentData {
+  /**
+   * Heading field in *Projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Hero Image field in *Projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
   /**
    * Slice Zone field in *Projects*
    *

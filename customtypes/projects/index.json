@@ -6,15 +6,30 @@
   "status": true,
   "json": {
     "Main": {
+      "heading": {
+        "type": "Text",
+        "config": {
+          "label": "Heading",
+          "placeholder": ""
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hero Image",
+          "constraint": {
+            "width": 2000,
+            "height": 1000
+          },
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
             "form_section": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             }
           }
