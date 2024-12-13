@@ -25,17 +25,9 @@
 				"type": "Text"
 			},
 			"phone": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "per"
-				}
-			},
-			"phone2": {
 				"__TYPE__": "FieldContent",
-				"value": "0",
-				"type": "Number"
+				"value": "street",
+				"type": "Text"
 			}
 		},
 		"items": []

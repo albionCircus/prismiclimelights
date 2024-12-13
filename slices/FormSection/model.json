@@ -36,19 +36,9 @@
           }
         },
         "phone": {
-          "type": "Link",
+          "type": "Text",
           "config": {
             "label": "Phone",
-            "placeholder": "",
-            "allowTargetBlank": false,
-            "select": null,
-            "allowText": true
-          }
-        },
-        "phone2": {
-          "type": "Number",
-          "config": {
-            "label": "Phone2",
             "placeholder": ""
           }
         }
