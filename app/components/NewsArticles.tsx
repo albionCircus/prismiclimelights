@@ -1,8 +1,6 @@
-import { Metadata } from "next";
 import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { PrismicDocument } from "@prismicio/client";
-// import Pagination from "../components/Pagination";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 interface PageProps {
@@ -47,12 +45,8 @@ export default async function NewsArticles(props: PageProps) {
     return new Date(dateB).getTime() - new Date(dateA).getTime();
   });
 
-//   const totalPages = Math.ceil(total_results_size / POSTS_PER_PAGE);
-
   return (
-    <>
-     
-        <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
+    <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
           {posts.map((post: PrismicDocument, index: number) => (
             <PrismicNextLink document={post} key={index}>
               <article className="bg-sky-100 min-h-full border-b-2 border-orange-600">
@@ -67,18 +61,5 @@ export default async function NewsArticles(props: PageProps) {
             </PrismicNextLink>
           ))}
         </div>
-        {/* <Pagination currentPage={currentPage} totalPages={totalPages} /> */}
-    
-    </>
   );
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const page = await client.getSingle("news");
-
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-  };
 }
