@@ -60,6 +60,6 @@ export default async function NewsArticles(props: PageProps) {
               </article>
             </PrismicNextLink>
           ))}
-        </div>
+    </div>
   );
 }
