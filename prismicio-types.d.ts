@@ -332,6 +332,7 @@ export type NewsPostDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | LatestNewsSlice
   | FormSectionSlice
   | ServiceSlice
   | TextWithImageSlice
