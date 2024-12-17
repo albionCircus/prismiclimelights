@@ -1,5 +1,7 @@
+import Bounded from "@/app/components/Bounded";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import NewsArticles from "@/app/components/NewsArticles";
 
 /**
  * Props for `LatestNews`.
@@ -11,13 +13,12 @@ export type LatestNewsProps = SliceComponentProps<Content.LatestNewsSlice>;
  */
 const LatestNews = ({ slice }: LatestNewsProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for latest_news (variation: {slice.variation})
-      Slices
-    </section>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+      <div className="margin0auto lg:max-w-[1400px]">
+        <h2 className="text-slate-700 mb-4 md:mb-2">{slice.primary.heading}</h2>
+        <NewsArticles />
+      </div>
+    </Bounded>
   );
 };
 
