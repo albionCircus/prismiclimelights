@@ -795,6 +795,51 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *LatestNews → Default → Primary*
+ */
+export interface LatestNewsSliceDefaultPrimary {
+  /**
+   * Heading field in *LatestNews → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: latest_news.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for LatestNews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LatestNewsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LatestNewsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LatestNews*
+ */
+type LatestNewsSliceVariation = LatestNewsSliceDefault;
+
+/**
+ * LatestNews Shared Slice
+ *
+ * - **API ID**: `latest_news`
+ * - **Description**: LatestNews
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LatestNewsSlice = prismic.SharedSlice<
+  "latest_news",
+  LatestNewsSliceVariation
+>;
+
+/**
  * Primary content in *NavigationItem → Default → Primary*
  */
 export interface NavigationItemSliceDefaultPrimary {
@@ -1137,6 +1182,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      LatestNewsSlice,
+      LatestNewsSliceDefaultPrimary,
+      LatestNewsSliceVariation,
+      LatestNewsSliceDefault,
       NavigationItemSlice,
       NavigationItemSliceDefaultPrimary,
       NavigationItemSliceVariation,
