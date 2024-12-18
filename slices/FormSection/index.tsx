@@ -35,7 +35,7 @@ const FormSection = ({ slice }: FormSectionProps): JSX.Element => {
           <ContactForm/>
         </div>
       </div>
-      <div className="absolute bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 -z-10 opacity-50 inset-x-0 bottom-0 h-4/5"></div>
+      <div className="absolute bg-gradient-to-b from-sky-100 via-sky-200 to-sky-300 -z-10 opacity-50 inset-x-0 bottom-0 h-4/5"></div>
     </section>
   );
 };
