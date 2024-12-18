@@ -18,7 +18,7 @@ const FormSection = ({ slice }: FormSectionProps): JSX.Element => {
     <section className="relative px-4 pt-4 pb-20 md:py-8 md:pt-6 md:pb-20 lg:pt-8 lg:pb-20">
       <div className="bg-white drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] rounded-3xl p-7 md:p-10 margin0auto m-[0 auto 40px] grid gap-8 md:grid-cols-2 place-items-center lg:max-w-[1400px]">
         <article className="w-full">
-          <h2 className="text-slate-700 mb-4 md:mb-2">{slice.primary.heading}</h2>
+          <h2 className="text-slate-700 mb-4 md:mb-1">{slice.primary.heading}</h2>
           <PrismicRichText field={slice.primary.description} />
             <div className="flex items-center my-4">
               <Image src="./map-pin.svg" alt="Map Pin Icon" width={26} height={26} quality={100} className="inline-block mr-1.5"/>

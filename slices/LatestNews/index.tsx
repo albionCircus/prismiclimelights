@@ -14,8 +14,8 @@ export type LatestNewsProps = SliceComponentProps<Content.LatestNewsSlice>;
 const LatestNews = ({ slice }: LatestNewsProps): JSX.Element => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      <div className="margin0auto lg:max-w-[1400px]">
-        <h2 className="text-slate-700 mb-4 md:mb-2">{slice.primary.heading}</h2>
+      <div className="margin0auto grid gap-4 lg:max-w-[1400px]">
+        <h2 className="text-slate-700">{slice.primary.heading}</h2>
         <NewsArticles />
       </div>
     </Bounded>
