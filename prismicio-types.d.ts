@@ -846,7 +846,17 @@ export type LatestNewsSlice = prismic.SharedSlice<
  */
 export interface NavigationItemSliceDefaultPrimary {
   /**
-   * Link field in *NavigationItem → Default → Primary*
+   * Primary Link Label field in *NavigationItem → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.default.primary.link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_label: prismic.KeyTextField;
+
+  /**
+   * Primary Link field in *NavigationItem → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -854,6 +864,16 @@ export interface NavigationItemSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * Child Link Label field in *NavigationItem → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.default.primary.child_link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  child_link_label: prismic.KeyTextField;
 
   /**
    * Child Link field in *NavigationItem → Default → Primary*

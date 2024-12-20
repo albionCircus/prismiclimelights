@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Head from 'next/head'
 import Footer from "./components/Footer";
 import "./globals.css";
-import Navigation from "./components/Navigation";
+import Nav from "./components/Navigation";
 // import ScrollReveal from "./intersectionObserver";
 
 const roboto_flex = Roboto_Flex({
@@ -34,7 +34,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <body className={`${roboto_flex.variable} ${montserrat.variable} antialiased`}>
-        <Navigation />
+        {/* <Navigation /> */}
+        <Nav />
         <main>
           {children}
         </main>

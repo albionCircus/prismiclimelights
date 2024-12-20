@@ -12,14 +12,28 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "link_label": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Link Label",
+            "placeholder": ""
+          }
+        },
         "link": {
           "type": "Link",
           "config": {
-            "label": "Link",
+            "label": "Primary Link",
             "placeholder": "",
             "allowTargetBlank": false,
             "select": null,
             "allowText": true
+          }
+        },
+        "child_link_label": {
+          "type": "Text",
+          "config": {
+            "label": "Child Link Label",
+            "placeholder": ""
           }
         },
         "child_link": {
