@@ -5,6 +5,7 @@ import { asLink } from '@prismicio/helpers';
 import Logo from "./Logo";
 import { createClient } from '@prismicio/client';
 import { PrismicNextLink } from '@prismicio/next';
+import styles from "@/app/custom.module.css";
 
 function classNames(...classes: (string | undefined | false)[]): string {
     return classes.filter(Boolean).join(' ');
@@ -23,7 +24,7 @@ async function Nav() {
     <Disclosure as="nav" className="mx-auto px-4 pt-4 md:pt-8 md:px-6 lg:pt-8 lg:max-w-[1440px]">
         <div className="relative flex items-center justify-between margin0auto">
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-1 text-gray-400 hover:bg-yellow-300 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-1 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="block size-8 group-data-[open]:hidden" />
@@ -40,7 +41,7 @@ async function Nav() {
               <div className="flex space-x-4">
                 <ul className="flex space-x-10 text-slate-600 mt-5 mb-3 md:mt-0 md:mb-0">
                     {navigation1.data.slices.map((slice) => (
-                        <li key={slice.id}>
+                        <li key={slice.id} className={`${styles.topLevelLink}`}>
                             <PrismicNextLink field={slice.primary.link} />
                         </li>
                     ))}
