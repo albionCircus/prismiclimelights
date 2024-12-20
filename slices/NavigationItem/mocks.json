@@ -7,16 +7,15 @@
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"text": "onto"
+					"url": "https://slicemachine.dev"
 				}
 			},
 			"child_link": {
 				"__TYPE__": "LinkContent",
+				"key": "37ee3c40-ef24-425d-8a0b-16cb1b70c8c8",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "lesson"
+					"url": "http://twitter.com"
 				}
 			},
 			"child_link_label": {

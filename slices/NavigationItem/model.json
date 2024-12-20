@@ -26,7 +26,7 @@
             "placeholder": "",
             "allowTargetBlank": false,
             "select": null,
-            "allowText": true
+            "allowText": false
           }
         },
         "child_link_label": {
@@ -43,7 +43,7 @@
             "placeholder": "",
             "allowTargetBlank": false,
             "select": null,
-            "allowText": true
+            "allowText": false
           }
         }
       },
