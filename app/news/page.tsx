@@ -6,9 +6,7 @@ import Bounded from "../components/Bounded";
 import FilterablePosts from "../components/FilterablePosts";
 
 interface PageProps {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams: Record<string, string | undefined>;
 }
 
 const POSTS_PER_PAGE = 6;
