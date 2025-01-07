@@ -5,8 +5,14 @@ import { components } from "@/slices";
 import Bounded from "../components/Bounded";
 import FilterablePosts from "../components/FilterablePosts";
 
+// Update the interface to use the correct Next.js types
+interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}
+
 interface PageProps {
-  searchParams: Record<string, string | undefined>;
+  params: { slug: string };
+  searchParams: SearchParams;
 }
 
 const POSTS_PER_PAGE = 6;
@@ -15,7 +21,11 @@ export default async function Page({ searchParams }: PageProps) {
   const client = createClient();
   const page = await client.getSingle("news");
 
-  const currentPage = parseInt(searchParams?.page || "1", 10);
+  // Handle potential string array from searchParams
+  const pageParam = Array.isArray(searchParams.page) 
+    ? searchParams.page[0] 
+    : searchParams.page;
+  const currentPage = parseInt(pageParam || "1", 10);
 
   const { results: posts, total_results_size } = await client.getByType(
     "news_post",
