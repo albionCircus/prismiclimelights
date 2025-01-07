@@ -5,17 +5,21 @@ import { components } from "@/slices";
 import Bounded from "../components/Bounded";
 import FilterablePosts from "../components/FilterablePosts";
 
-// Update interface to use correct types for Next.js App Router
-type SearchParams = { [key: string]: string | string[] | undefined };
+const POSTS_PER_PAGE = 6;
 
-// Remove the explicit params interface since we don't use it
-export default async function Page({ searchParams }: { searchParams: SearchParams }) {
+// Define the props type with specific interfaces
+interface Props {
+  params: Record<string, never>;
+  searchParams: Record<string, string | string[] | undefined>;
+}
+
+export default async function Page(props: Props) {
+  const searchParams = await props.searchParams; // Explicitly await if required by the framework
   const client = createClient();
   const page = await client.getSingle("news");
 
-  // Handle potential string array from searchParams
-  const pageParam = Array.isArray(searchParams.page) 
-    ? searchParams.page[0] 
+  const pageParam = Array.isArray(searchParams.page)
+    ? searchParams.page[0]
     : searchParams.page;
   const currentPage = parseInt(pageParam || "1", 10);
 
@@ -59,7 +63,6 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
   );
 }
 
-const POSTS_PER_PAGE = 6;
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
