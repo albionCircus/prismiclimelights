@@ -1,77 +1,59 @@
 import { Metadata } from "next";
-import { PrismicRichText, SliceZone } from "@prismicio/react";
+import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { PrismicDocument } from "@prismicio/client";
 import Bounded from "../components/Bounded";
-import Pagination from "../components/Pagination";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import FilterablePosts from "../components/FilterablePosts";
 
 interface PageProps {
-  searchParams?: Promise<{
+  searchParams?: {
     page?: string;
-  }>;
+  };
 }
 
 const POSTS_PER_PAGE = 6;
 
-export default async function Page(props: PageProps) {
-  const searchParams = await props.searchParams || {}; // Fallback to an empty object if undefined from line 11
+export default async function Page({ searchParams }: PageProps) {
   const client = createClient();
   const page = await client.getSingle("news");
 
-  // Safely parse the page number from searchParams
-  const currentPage = parseInt(searchParams.page || "1", 10);
+  const currentPage = parseInt(searchParams?.page || "1", 10);
 
-  // Fetch the posts for the current page
   const { results: posts, total_results_size } = await client.getByType(
     "news_post",
     {
       orderings: [
         { field: "data.original_date", direction: "desc" },
-        // { field: "document.last_publication_date", direction: "desc" },
         { field: "document.first_publication_date", direction: "desc" },
       ],
       pageSize: POSTS_PER_PAGE,
       page: currentPage,
-    },
+    }
   );
 
-  // If original_date is present, override the sorting manually
   posts.sort((a, b) => {
-    const dateA =
-      a.data.original_date ||
-      // a.last_publication_date ||
-      a.first_publication_date;
-    const dateB =
-      b.data.original_date ||
-      // b.last_publication_date ||
-      b.first_publication_date;
+    const dateA = a.data.original_date || a.first_publication_date;
+    const dateB = b.data.original_date || b.first_publication_date;
     return new Date(dateB).getTime() - new Date(dateA).getTime();
   });
 
   const totalPages = Math.ceil(total_results_size / POSTS_PER_PAGE);
 
+  type Category = "Events" | "Industry" | "Technology" | "All" | null;
+
+  const flatCategories = posts.flatMap((post) => post.data.category as Category);
+  const uniqueCategoryTags = ["All", ...new Set(flatCategories.filter((category): category is Exclude<Category, null> => category !== null))];
+
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
       <Bounded className="margin0auto max-w-7xl">
-        <div className="grid auto-rows-min sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8">
-          {posts.map((post: PrismicDocument, index: number) => (
-            <PrismicNextLink document={post} key={index}>
-              <article className="bg-sky-100 min-h-full border-b-2 border-orange-600">
-                <PrismicNextImage field={post.data.image} />
-                <div className="m-5">
-                  <p className="w-fit bg-white p-1.5 rounded-lg mb-3">{post.data.category}</p>
-                  <h4 className="text-sky-950">{post.data.heading}</h4>
-                  <p className="my-3">{new Date(post.data.original_date || Date.now()).toLocaleDateString("en-GB")}</p>
-                  <PrismicRichText field={post.data.description} />
-                </div>
-              </article>
-            </PrismicNextLink>
-          ))}
-        </div>
-        <Pagination currentPage={currentPage} totalPages={totalPages} />
+        <FilterablePosts
+          posts={posts}
+          categories={uniqueCategoryTags}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
       </Bounded>
     </>
   );

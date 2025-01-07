@@ -34,7 +34,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <body className={`${roboto_flex.variable} ${montserrat.variable} antialiased`}>
-        {/* <Navigation /> */}
         <Nav />
         <main>
           {children}

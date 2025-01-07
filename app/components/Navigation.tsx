@@ -53,7 +53,6 @@ async function Nav() {
                 {navigation1.data.slices.map((slice) => {
                   const link = asLink(slice.primary.link, linkResolver) || '/';
                   const isExternal = link.startsWith('http');
-
                   return (
                     <li key={slice.id} className={`${styles.topLevelLink}`}>
                       {isExternal ? (
