@@ -7,9 +7,9 @@ import FilterablePosts from "../components/FilterablePosts";
 
 const POSTS_PER_PAGE = 6;
 
-// Define the props type with specific interfaces
+// Define the props type with stricter typing for `params`
 interface Props {
-  params: Record<string, never>; // empty object for params since we don't use them
+  params: object; // No dynamic segments, so params is an empty object
   searchParams: Record<string, string | string[] | undefined>;
 }
 
@@ -17,9 +17,9 @@ export default async function Page({ searchParams }: Props) {
   const client = createClient();
   const page = await client.getSingle("news");
 
-  // Handle potential string array from searchParams
-  const pageParam = Array.isArray(searchParams.page) 
-    ? searchParams.page[0] 
+  // Access `searchParams.page` safely
+  const pageParam = Array.isArray(searchParams.page)
+    ? searchParams.page[0]
     : searchParams.page;
   const currentPage = parseInt(pageParam || "1", 10);
 
@@ -45,10 +45,16 @@ export default async function Page({ searchParams }: Props) {
 
   type Category = "Events" | "Industry" | "Technology" | "All" | null;
 
-  const flatCategories = posts.flatMap((post) => post.data.category as Category);
+  const flatCategories = posts.flatMap(
+    (post) => post.data.category as Category
+  );
   const uniqueCategoryTags = [
-    "All", 
-    ...new Set(flatCategories.filter((category): category is Exclude<Category, null> => category !== null))
+    "All",
+    ...new Set(
+      flatCategories.filter(
+        (category): category is Exclude<Category, null> => category !== null
+      )
+    ),
   ];
 
   return (
