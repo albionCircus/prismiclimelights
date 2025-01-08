@@ -9,9 +9,16 @@ const POSTS_PER_PAGE = 6;
 
 // Define the props type with stricter typing for `params`
 interface Props {
-  params: object; // No dynamic segments, so params is an empty object
+  // params: Promise<{ id: string, slug: string }>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: Promise<any>
   searchParams: Record<string, string | string[] | undefined>;
 }
+
+// type Params = Promise<{ slug: string[] }>;
+// export default async function Page({ params }: { params: Params }) {
+// const { slug } = await params;
+// }
 
 export default async function Page({ searchParams }: Props) {
   const client = createClient();
