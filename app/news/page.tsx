@@ -10,7 +10,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 interface PageProps {
   searchParams?: Promise<{
     page?: string;
-  }>;
+  }>;   
 }
 
 const POSTS_PER_PAGE = 6;
