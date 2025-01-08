@@ -17,19 +17,19 @@
     "@prismicio/next": "^1.7.1",
     "@prismicio/react": "^2.9.1",
     "clsx": "^2.1.1",
-    "next": "15.0.3",
+    "next": "^15.1.4",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.59",
+    "@slicemachine/adapter-next": "^0.3.61",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
-    "slice-machine-ui": "^2.10.5",
+    "slice-machine-ui": "^2.11.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
