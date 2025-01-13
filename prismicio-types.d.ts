@@ -606,6 +606,55 @@ export type ProjectsPostDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *SearchDescription → Heading*
+ */
+export interface SearchdescriptionDocumentDataHeadingItem {
+  /**
+   * Body field in *SearchDescription → Heading*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: searchdescription.heading[].body
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  body: prismic.KeyTextField;
+}
+
+/**
+ * Content for SearchDescription documents
+ */
+interface SearchdescriptionDocumentData {
+  /**
+   * Heading field in *SearchDescription*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: searchdescription.heading[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  heading: prismic.GroupField<
+    Simplify<SearchdescriptionDocumentDataHeadingItem>
+  >;
+}
+
+/**
+ * SearchDescription document from Prismic
+ *
+ * - **API ID**: `searchdescription`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SearchdescriptionDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SearchdescriptionDocumentData>,
+    "searchdescription",
+    Lang
+  >;
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -667,6 +716,7 @@ export type AllDocumentTypes =
   | PageDocument
   | ProjectsDocument
   | ProjectsPostDocument
+  | SearchdescriptionDocument
   | SettingsDocument;
 
 /**
@@ -1193,6 +1243,9 @@ declare module "@prismicio/client" {
       ProjectsPostDocument,
       ProjectsPostDocumentData,
       ProjectsPostDocumentDataSlicesSlice,
+      SearchdescriptionDocument,
+      SearchdescriptionDocumentData,
+      SearchdescriptionDocumentDataHeadingItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

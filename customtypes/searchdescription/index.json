@@ -1,0 +1,27 @@
+{
+  "format": "custom",
+  "id": "searchdescription",
+  "label": "SearchDescription",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "Group",
+        "config": {
+          "label": "Heading",
+          "repeat": true,
+          "fields": {
+            "body": {
+              "type": "Text",
+              "config": {
+                "label": "Body",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
