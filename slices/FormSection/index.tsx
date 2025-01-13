@@ -31,7 +31,7 @@ const FormSection = ({ slice }: FormSectionProps): JSX.Element => {
               </p>
             </div>
         </article>
-        <div className="w-full">
+        <div className="w-full" id="contactForm">
           <ContactForm/>
         </div>
       </div>

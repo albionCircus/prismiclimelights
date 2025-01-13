@@ -35,7 +35,7 @@ p {
 nav li {
     font-family: var(--font-montserrat);
     font-weight: 450;
-    @apply max-w-3xl text-lg leading-snug;
+    @apply max-w-3xl text-lg leading-relaxed;
 }
 
 a {

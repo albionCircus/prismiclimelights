@@ -6,6 +6,9 @@ import { FilledContentRelationshipField } from '@prismicio/types';
 import Logo from "./Logo";
 import { createClient } from '@prismicio/client';
 import styles from "@/app/custom.module.css";
+import SearchComponent from './Search';
+// import SearchModal from './SearchModal';
+// import Image from "next/image";
 
 const linkResolver = (doc: FilledContentRelationshipField<string, string, unknown>): string => {
   if (doc.type === 'page') {
@@ -27,6 +30,8 @@ const endpoint = `https://${repositoryName}.cdn.prismic.io/api/v2`;
 
 const client = createClient(endpoint);
 
+// const Nav = ({ navigationData }) => { add from chatGPT
+
 async function Nav() {
   const navigation1 = await client.getSingle("navigation");
 
@@ -42,12 +47,16 @@ async function Nav() {
           </DisclosureButton>
         </div>
         <div className="flex items-center justify-between w-full">
+          
           <div className="flex shrink-0 items-center">
             <Link href={'/'}>
               <Logo />
             </Link>
           </div>
-          <div className="hidden sm:ml-6 sm:block">
+
+          <div className='flex items-center'>
+
+          <div className="hidden sm:ml-6 sm:block sm:mr-10">
             <div className="flex space-x-4">
             <ul className="flex space-x-10 text-slate-600 mt-5 mb-3 md:mt-0 md:mb-0">
                 {navigation1.data.slices.map((slice) => {
@@ -70,6 +79,19 @@ async function Nav() {
               </ul>
             </div>
           </div>
+
+          <SearchComponent />
+
+          </div>
+
+          {/* <Image src="./searchIcon.svg" alt="Search Icon" width={26} height={26} quality={100} className="inline-block mr-1.5 trigger" onClick={SearchModal}/>
+          <div className={`${styles.modal}`}>
+              <div className={`${styles.modalContent}`}>
+                  <span className="closeButton">×</span>
+                  <h1>Hello, I am a modal!</h1>
+              </div>
+          </div> */}
+
         </div>
       </div>
       <DisclosurePanel className="sm:hidden">
