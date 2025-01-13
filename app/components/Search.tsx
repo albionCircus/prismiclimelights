@@ -49,7 +49,7 @@ export default function SearchComponent() {
         value={query}
         onChange={handleSearch}
         placeholder="Search..."
-        className="placeholder-gray-600 text-gray-600 p-1.5 w-full h-10 border-2 rounded-lg border-gray-400 focus:border-red border-solid"
+        className="placeholder-gray-600 text-gray-600 p-1.5 w-full h-10 border-2 rounded-lg border-gray-400 focus:outline-none focus:border-amber-500"
       />
       <ul className={`absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth ${styles.transparentSearchBox} ${styles.maxHeight85}`}>
         {results.map((result, idx) => (
