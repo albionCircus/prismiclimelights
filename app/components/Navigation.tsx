@@ -6,7 +6,8 @@ import { FilledContentRelationshipField } from '@prismicio/types';
 import Logo from "./Logo";
 import { createClient } from '@prismicio/client';
 import styles from "@/app/custom.module.css";
-import SearchComponent from './Search';
+import SearchParent from './SearchParent';
+
 // import SearchModal from './SearchModal';
 // import Image from "next/image";
 
@@ -30,10 +31,9 @@ const endpoint = `https://${repositoryName}.cdn.prismic.io/api/v2`;
 
 const client = createClient(endpoint);
 
-// const Nav = ({ navigationData }) => { add from chatGPT
-
 async function Nav() {
-  const navigation1 = await client.getSingle("navigation");
+  
+  const navigation1 = await client.getSingle("navigation"); 
 
   return (
     <Disclosure as="nav" className="mx-auto px-4 pt-4 md:pt-8 md:px-6 lg:pt-8 lg:max-w-[1440px]">
@@ -55,33 +55,31 @@ async function Nav() {
           </div>
 
           <div className='flex items-center'>
-
-          <div className="hidden sm:ml-6 sm:block sm:mr-10">
-            <div className="flex space-x-4">
-            <ul className="flex space-x-10 text-slate-600 mt-5 mb-3 md:mt-0 md:mb-0">
-                {navigation1.data.slices.map((slice) => {
-                  const link = asLink(slice.primary.link, linkResolver) || '/';
-                  const isExternal = link.startsWith('http');
-                  return (
-                    <li key={slice.id} className={`${styles.topLevelLink}`}>
-                      {isExternal ? (
-                        <a href={link} target="_blank" rel="noopener noreferrer">
-                          {slice.primary.link_label}
-                        </a>
-                      ) : (
-                        <Link href={link}>
-                          {slice.primary.link_label}
-                        </Link>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+            <div className="hidden sm:ml-6 sm:block sm:mr-10">
+              <div className="flex space-x-4">
+              <ul className="flex space-x-10 text-slate-600 mt-5 mb-3 md:mt-0 md:mb-0">
+                  {navigation1.data.slices.map((slice) => {
+                    const link = asLink(slice.primary.link, linkResolver) || '/';
+                    const isExternal = link.startsWith('http');
+                    return (
+                      <li key={slice.id} className={`${styles.topLevelLink}`}>
+                        {isExternal ? (
+                          <a href={link} target="_blank" rel="noopener noreferrer">
+                            {slice.primary.link_label}
+                          </a>
+                        ) : (
+                          <Link href={link}>
+                            {slice.primary.link_label}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-          </div>
-
-          <SearchComponent />
-
+            {/* Render a parent component if its responsible for managing state or fetching data (like pageSearchDescription) and passes it as a prop to SearchChild */}
+            <SearchParent />
           </div>
 
           {/* <Image src="./searchIcon.svg" alt="Search Icon" width={26} height={26} quality={100} className="inline-block mr-1.5 trigger" onClick={SearchModal}/>

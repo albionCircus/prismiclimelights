@@ -606,40 +606,60 @@ export type ProjectsPostDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *SearchDescription → Heading*
+ * Item in *Page Search Description → Pages Search Description*
  */
-export interface SearchdescriptionDocumentDataHeadingItem {
+export interface SearchdescriptionDocumentDataPagessearchdescriptionItem {
   /**
-   * Body field in *SearchDescription → Heading*
+   * Heading field in *Page Search Description → Pages Search Description*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: searchdescription.heading[].body
+   * - **API ID Path**: searchdescription.pagessearchdescription[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Body field in *Page Search Description → Pages Search Description*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: searchdescription.pagessearchdescription[].body
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   body: prismic.KeyTextField;
+
+  /**
+   * Link field in *Page Search Description → Pages Search Description*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: searchdescription.pagessearchdescription[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**
- * Content for SearchDescription documents
+ * Content for Page Search Description documents
  */
 interface SearchdescriptionDocumentData {
   /**
-   * Heading field in *SearchDescription*
+   * Pages Search Description field in *Page Search Description*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: searchdescription.heading[]
+   * - **API ID Path**: searchdescription.pagessearchdescription[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  heading: prismic.GroupField<
-    Simplify<SearchdescriptionDocumentDataHeadingItem>
+  pagessearchdescription: prismic.GroupField<
+    Simplify<SearchdescriptionDocumentDataPagessearchdescriptionItem>
   >;
 }
 
 /**
- * SearchDescription document from Prismic
+ * Page Search Description document from Prismic
  *
  * - **API ID**: `searchdescription`
  * - **Repeatable**: `false`
@@ -1245,7 +1265,7 @@ declare module "@prismicio/client" {
       ProjectsPostDocumentDataSlicesSlice,
       SearchdescriptionDocument,
       SearchdescriptionDocumentData,
-      SearchdescriptionDocumentDataHeadingItem,
+      SearchdescriptionDocumentDataPagessearchdescriptionItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

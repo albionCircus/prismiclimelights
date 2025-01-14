@@ -1,22 +1,39 @@
 {
   "format": "custom",
   "id": "searchdescription",
-  "label": "SearchDescription",
+  "label": "Page Search Description",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "heading": {
+      "pagessearchdescription": {
         "type": "Group",
         "config": {
-          "label": "Heading",
+          "label": "Pages Search Description",
           "repeat": true,
           "fields": {
+            "heading": {
+              "type": "Text",
+              "config": {
+                "label": "Heading",
+                "placeholder": ""
+              }
+            },
             "body": {
               "type": "Text",
               "config": {
                 "label": "Body",
                 "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "select": null,
+                "allowText": false
               }
             }
           }

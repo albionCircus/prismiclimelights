@@ -1,5 +1,7 @@
 "use client";
 
+// Client Component for Interactivity. SearchChild is a client component and receives pageSearchDescription as props
+
 import Fuse from "fuse.js";
 import { useState } from "react";
 import styles from "@/app/custom.module.css";
@@ -18,34 +20,22 @@ interface PageSearchDescription {
 }
 
 interface SearchComponentProps {
-  pageSearchDescription?: PageSearchDescription | null;
+  pageSearchDescription: PageSearchDescription;
 }
 
-export async function getStaticProps() {
-  // Simulate data fetching for pageSearchDescription
-  const pageSearchDescription = {
-    data: {
-      title: "Sample Title",
-      description: "Sample Description",
-    },
-  };
-  return {
-    props: {
-      pageSearchDescription,
-    },
-  };
-}
-
-export default function SearchComponent({ pageSearchDescription }: SearchComponentProps) {
+export default function SearchChild({ pageSearchDescription }: SearchComponentProps) {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<DataItem[]>([]);
 
   const data: DataItem[] = [
-    { title: "Home", description: "Welcome to Limelights Event Services", link: "/" },
-    { title: "Services", description: "From Audio to Events we've got you covered", link: "/services" },
-    { title: "Projects", description: "A selection of our latest projects", link: "/projects" },
-    { title: "News", description: "A round-up of industry news and developments", link: "/news" },
-    { title: "Contact", description: "Drop us a line and we'll get back to you shortly", link: "/#contactForm" },
+    { title: "Home!!!", description: "Welcome to Limelights Event Services", link: "/" },
+    { title: "Services!!", description: "From Audio to Events we've got you covered", link: "/services" },
+    { title: "Projects!!", description: "A selection of our latest projects", link: "/projects" },
+    { title: "News!!", description: "A round-up of industry news and developments", link: "/news" },
+    { title: "Contact!!", description: "Drop us a line and we'll get back to you shortly", link: "/#contactForm" },
+
+    // { title: pageSearchDescription.data.title, description: pageSearchDescription.data.description, link: "/#" }
+    
     // Add more data here...
   ];
 
@@ -77,12 +67,12 @@ export default function SearchComponent({ pageSearchDescription }: SearchCompone
         placeholder="Search..."
         className="placeholder-gray-600 text-gray-600 p-1.5 w-full h-10 border-2 rounded-lg border-gray-400 focus:outline-none focus:border-amber-500"
       />
-      {pageSearchDescription && (
+      {/* {pageSearchDescription && (
         <div className="my-4">
           <h2>{pageSearchDescription.data.title}</h2>
           <p>{pageSearchDescription.data.description}</p>
         </div>
-      )}
+      )} */}
       <ul
         className={`absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth ${styles.transparentSearchBox} ${styles.maxHeight85}`}
       >
@@ -97,16 +87,6 @@ export default function SearchComponent({ pageSearchDescription }: SearchCompone
           </li>
         ))}
       </ul>
-
-      {/* Use below syntax to avoid following error. "Type 'PageSearchDescription | null | undefined' is not assignable to type 'ReactNode', caused by accessing data directly ie, {pageSearchDescription.data} */}
-      
-      {pageSearchDescription && (
-        <div className="my-4">
-          <h2>{pageSearchDescription.data.title}</h2>
-          <p>{pageSearchDescription.data.description}</p>
-        </div>
-      )}
-
     </div>
   );
 }
