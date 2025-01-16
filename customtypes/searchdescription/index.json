@@ -6,23 +6,30 @@
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
       "pagessearchdescription": {
         "type": "Group",
         "config": {
           "label": "Pages Search Description",
           "repeat": true,
           "fields": {
-            "heading": {
+            "title": {
               "type": "Text",
               "config": {
-                "label": "Heading",
+                "label": "Title",
                 "placeholder": ""
               }
             },
-            "body": {
+            "description": {
               "type": "Text",
               "config": {
-                "label": "Body",
+                "label": "Description",
                 "placeholder": ""
               }
             },

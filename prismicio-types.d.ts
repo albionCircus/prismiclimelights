@@ -610,24 +610,24 @@ export type ProjectsPostDocument<Lang extends string = string> =
  */
 export interface SearchdescriptionDocumentDataPagessearchdescriptionItem {
   /**
-   * Heading field in *Page Search Description → Pages Search Description*
+   * Title field in *Page Search Description → Pages Search Description*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: searchdescription.pagessearchdescription[].heading
+   * - **API ID Path**: searchdescription.pagessearchdescription[].title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.KeyTextField;
+  title: prismic.KeyTextField;
 
   /**
-   * Body field in *Page Search Description → Pages Search Description*
+   * Description field in *Page Search Description → Pages Search Description*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: searchdescription.pagessearchdescription[].body
+   * - **API ID Path**: searchdescription.pagessearchdescription[].description
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  body: prismic.KeyTextField;
+  description: prismic.KeyTextField;
 
   /**
    * Link field in *Page Search Description → Pages Search Description*
@@ -668,7 +668,7 @@ interface SearchdescriptionDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SearchdescriptionDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
+  prismic.PrismicDocumentWithUID<
     Simplify<SearchdescriptionDocumentData>,
     "searchdescription",
     Lang

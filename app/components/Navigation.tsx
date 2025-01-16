@@ -33,7 +33,8 @@ const client = createClient(endpoint);
 
 async function Nav() {
   
-  const navigation1 = await client.getSingle("navigation"); 
+  const navigation1 = await client.getSingle("navigation");
+  // console.log(SearchParent);
 
   return (
     <Disclosure as="nav" className="mx-auto px-4 pt-4 md:pt-8 md:px-6 lg:pt-8 lg:max-w-[1440px]">
