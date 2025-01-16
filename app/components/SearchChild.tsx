@@ -4,7 +4,6 @@
 
 import Fuse from "fuse.js";
 import { useState } from "react";
-import styles from "@/app/custom.module.css";
 
 interface DataItem {
   title: string;
@@ -67,7 +66,7 @@ export default function SearchChild({ }: SearchComponentProps) {
         placeholder="&#128270; Search..."
         className="placeholder-gray-600 text-gray-600 p-1.5 h-10 border-2 rounded-lg border-gray-400 transition-all ease-in-out duration-700 focus:outline-none focus:border-amber-500 w-36 focus:w-64"
       />
-      <ul className={`absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth ${styles.transparentSearchBox} ${styles.maxHeight85}`}>
+      <ul className="absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth z-50 h-auto max-h-[85vh]">
         {results.map((result, idx) => (
           <li key={idx} className="bg-white hover:bg-amber-100">
             <a href={result.link}>

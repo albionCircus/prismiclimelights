@@ -73,14 +73,3 @@
     color: #ffffff;
     background: #f97316;
 }
-
-/* Nav search bar */
-
-.transparentSearchBox {
-    z-index: 100;
-}
-
-.maxHeight85 {
-    height: auto;
-    max-height: 85vh;
-}
