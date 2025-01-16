@@ -59,17 +59,15 @@ export default function SearchChild({ }: SearchComponentProps) {
   };
 
   return (
-    <div className="hidden relative w-full lg:block lg:w-64">
+    <div className="hidden relative w-full lg:block">
       <input
         type="text"
         value={query}
         onChange={handleSearch}
-        placeholder="Search..."
-        className="placeholder-gray-600 text-gray-600 p-1.5 w-full h-10 border-2 rounded-lg border-gray-400 focus:outline-none focus:border-amber-500"
+        placeholder="&#128270; Search..."
+        className="placeholder-gray-600 text-gray-600 p-1.5 h-10 border-2 rounded-lg border-gray-400 transition-all ease-in-out duration-700 focus:outline-none focus:border-amber-500 w-36 focus:w-64"
       />
-      <ul
-        className={`absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth ${styles.transparentSearchBox} ${styles.maxHeight85}`}
-      >
+      <ul className={`absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth ${styles.transparentSearchBox} ${styles.maxHeight85}`}>
         {results.map((result, idx) => (
           <li key={idx} className="bg-white hover:bg-amber-100">
             <a href={result.link}>

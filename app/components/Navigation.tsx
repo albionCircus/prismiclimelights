@@ -7,8 +7,6 @@ import Logo from "./Logo";
 import { createClient } from '@prismicio/client';
 import styles from "@/app/custom.module.css";
 import SearchParent from './SearchParent';
-
-// import SearchModal from './SearchModal';
 // import Image from "next/image";
 
 const linkResolver = (doc: FilledContentRelationshipField<string, string, unknown>): string => {
@@ -82,15 +80,6 @@ async function Nav() {
             {/* Render a parent component if its responsible for managing state or fetching data (like pageSearchDescription) and passes it as a prop to SearchChild */}
             <SearchParent />
           </div>
-
-          {/* <Image src="./searchIcon.svg" alt="Search Icon" width={26} height={26} quality={100} className="inline-block mr-1.5 trigger" onClick={SearchModal}/>
-          <div className={`${styles.modal}`}>
-              <div className={`${styles.modalContent}`}>
-                  <span className="closeButton">×</span>
-                  <h1>Hello, I am a modal!</h1>
-              </div>
-          </div> */}
-
         </div>
       </div>
       <DisclosurePanel className="sm:hidden">
