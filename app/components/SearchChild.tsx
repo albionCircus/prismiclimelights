@@ -3,7 +3,7 @@
 // Client Component for Interactivity. SearchChild is a client component and receives pageSearchDescription as props
 
 import Fuse from "fuse.js";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface DataItem {
   title: string;
@@ -26,6 +26,7 @@ interface SearchComponentProps {
 export default function SearchChild({ }: SearchComponentProps) {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<DataItem[]>([]);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const data: DataItem[] = [
     { title: "Home", description: "Welcome to Limelights Event Services", link: "/" },
@@ -38,46 +39,56 @@ export default function SearchChild({ }: SearchComponentProps) {
     // Add more data here...
   ];
 
-  // Configure Fuse.js options
   const fuse = new Fuse(data, {
-    keys: ["title", "description", "link"], // Fields to search against
-    threshold: 0.3, // Adjust to refine matching sensitivity
+    keys: ["title", "description", "link"],
+    threshold: 0.3,
   });
 
-  // Handle input change and search results
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setQuery(query);
 
     if (query) {
       const fuseResults = fuse.search(query);
-      setResults(fuseResults.map((result) => result.item)); // Extract the matched items
+      setResults(fuseResults.map((result) => result.item));
     } else {
-      setResults([]); // Clear results when query is empty
+      setResults([]);
     }
+  };
+
+  const handleBlur = () => {
+    // Clear results when the input loses focus
+    setTimeout(() => {
+      setResults([]);
+      setQuery(""); // Clear the input field
+    }, 100); // Slight delay to allow clicking a result before clearing
   };
 
   return (
     <div className="hidden relative w-full lg:block">
       <input
+        ref={inputRef}
         type="text"
         value={query}
         onChange={handleSearch}
-        placeholder="&#128270; Search..."
-        className="placeholder-gray-600 text-gray-600 p-1.5 h-10 border-2 rounded-lg border-gray-400 transition-all ease-in-out duration-700 focus:outline-none focus:border-amber-500 w-36 focus:w-64"
+        onBlur={handleBlur}
+        placeholder="Search..."
+        className="theSearchInput placeholder-gray-600 text-gray-600 p-1.5 h-10 border-2 rounded-lg border-gray-400 transition-all ease-in-out duration-700 focus:outline-none focus:border-amber-500 w-32 focus:w-64"
       />
-      <ul className="absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth z-50 h-auto max-h-[85vh]">
-        {results.map((result, idx) => (
-          <li key={idx} className="bg-white hover:bg-amber-100">
-            <a href={result.link}>
-              <p className="font-medium pt-3 px-4 pb-1 text-amber-500 leading-6">{result.title}</p>
-              <p className="leading-tight pt-0 px-4 pb-3">
-                <small>{result.description}</small>
-              </p>
-            </a>
-          </li>
-        ))}
-      </ul>
+      {results.length > 0 && (
+        <ul className="absolute bg-white top-10 pt-0 overflow-y-scroll scroll-smooth z-50 h-auto max-h-[85vh]">
+          {results.map((result, idx) => (
+            <li key={idx} className="bg-white hover:bg-amber-100">
+              <a href={result.link}>
+                <p className="font-medium pt-3 px-4 pb-1 text-amber-500 leading-6">{result.title}</p>
+                <p className="leading-tight pt-0 px-4 pb-3">
+                  <small>{result.description}</small>
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
