@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Creat classes with tailwind styles applied  */
+/* Creat utility classes with tailwind styles applied  */
 /* @layer utilities {
     .headingH1 {
         font-family: var(--font-roboto-flex);
