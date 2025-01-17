@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Creat classes with tailwind styles applied  */
+/* @layer utilities {
+    .headingH1 {
+        font-family: var(--font-roboto-flex);
+        font-weight: 700;
+        @apply text-slate-700 text-balance text-4xl xl:text-[3.7rem] xl:leading-[3.5rem];
+    }
+} */
 
 h1 {
     font-family: var(--font-roboto-flex);
